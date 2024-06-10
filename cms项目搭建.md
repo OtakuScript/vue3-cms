@@ -2,7 +2,7 @@
 
 ## 项目创建
 
-vue-cli创建项目
+vue-cli 创建项目
 
 ```js
 vue create vue3-cms
@@ -37,7 +37,7 @@ all, <i> to invert selection, and <enter> to proceed)
  ( ) E2E Testing // 端到端测试
 ```
 
-### 3.选择vue版本
+### 3.选择 vue 版本
 
 ```js
 ? Choose a version of Vue.js that you want to start the project with (Use arrow keys)
@@ -51,13 +51,13 @@ all, <i> to invert selection, and <enter> to proceed)
 ? Use class-style component syntax? No
 ```
 
-### 5.是否使用Babel转换Ts
+### 5.是否使用 Babel 转换 Ts
 
 ```js
 ? Use Babel alongside TypeScript (required for modern mode, auto-detected polyfills, transpiling JSX)? Yes
 ```
 
-### 6.选择css的预处理less
+### 6.选择 css 的预处理 less
 
 ```js
 ? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default): (Use arrow keys)
@@ -119,7 +119,7 @@ Vue CLI v5.0.8
 
 ## 第三方库集成
 
-### 1.editorconfig配置
+### 1.editorconfig 配置
 
 **代码风格样式**: 保持字符集、缩进、换行符等一致。
 
@@ -147,7 +147,7 @@ trim_trailing_whitespace = false
 npm install prettier -D
 ```
 
-.prettierrc配置
+.prettierrc 配置
 
 ```js
 {
@@ -160,7 +160,7 @@ npm install prettier -D
 }
 ```
 
-.prettierignore忽略文件配置
+.prettierignore 忽略文件配置
 
 ```js
 /dist/*
@@ -180,11 +180,11 @@ npm install prettier -D
 "prettier": "prettier --write .",
 ```
 
-### 3.eslint代码约束
+### 3.eslint 代码约束
 
 代码风格检查
 
-项目创建会默认创建.eslintrc.js及其默认配置
+项目创建会默认创建.eslintrc.js 及其默认配置
 
 ```js
 module.exports = {
@@ -192,11 +192,7 @@ module.exports = {
   env: {
     node: true
   },
-  extends: [
-    "plugin:vue/vue3-essential",
-    "eslint:recommended",
-    "@vue/typescript/recommended",
-  ],
+  extends: ["plugin:vue/vue3-essential", "eslint:recommended", "@vue/typescript/recommended"],
   parserOptions: {
     ecmaVersion: 2020
   },
@@ -207,7 +203,7 @@ module.exports = {
 }
 ```
 
-根据自定义的prettier规范约束则需要增加配置，后面的推荐配置会覆盖前面的
+根据自定义的 prettier 规范约束则需要增加配置，后面的推荐配置会覆盖前面的
 
 ```js
   extends: [
@@ -216,29 +212,27 @@ module.exports = {
   ],
 ```
 
-此配置会调用两个插件，创建项目时选择ESLint + Prettier的情况下默认安装：
+此配置会调用两个插件，创建项目时选择 ESLint + Prettier 的情况下默认安装：
 
 ```js
 npm i eslint-plugin-prettier eslint-config-prettier -D
 ```
 
-### 4.git Husky和eslint
+### 4.git Husky 和 eslint
 
-[husky官网]([Husky (typicode.github.io)](https://typicode.github.io/husky/))
+[husky 官网]([Husky (typicode.github.io)](https://typicode.github.io/husky/))
 
-代码提交之前进行约束，使用自动化命令；即commit之前，执行script的命令
+代码提交之前进行约束，使用自动化命令；即 commit 之前，执行 script 的命令
 
 配置方式直接走教程或者官网，以下的方法暂时无效：https://typicode.github.io/husky
-
-
 
 ```js
  npx husky -init && npm install #npm  // powershell/cmd中无效，需要换成git bash终端或者&&加上引号""
 ```
 
-自动生成.husky目录，还有目录下pre-commit配置文件，是配置执行git commit前执行的hook
+自动生成.husky 目录，还有目录下 pre-commit 配置文件，是配置执行 git commit 前执行的 hook
 
-pre-commit配置
+pre-commit 配置
 
 ```js
 #!/bin/sh
@@ -254,7 +248,7 @@ npm intsall husky -D
 npx husky install
 ```
 
-配置命令行脚本，并重新npm install
+配置命令行脚本，并重新 npm install
 
 ```js
 "scripts": {
@@ -264,9 +258,9 @@ npx husky install
 }
 ```
 
-### 5. commitizen提交信息风格规范
+### 5. commitizen 提交信息风格规范
 
-commit信息规范，自动生成提交信息。
+commit 信息规范，自动生成提交信息。
 
 安装插件：
 
@@ -274,13 +268,13 @@ commit信息规范，自动生成提交信息。
 npm install commitizen -D
 ```
 
-安装并初始化cz-conventional-changelog：
+安装并初始化 cz-conventional-changelog：
 
 ```js
 npx commitizen init cz-conventional-changelog -D --save-exact
 ```
 
-初始化后会自动在package.json生成配置：
+初始化后会自动在 package.json 生成配置：
 
 ```js
 "config": {
@@ -296,7 +290,7 @@ npx commitizen init cz-conventional-changelog -D --save-exact
 npx cz
 ```
 
-配置script命令行：
+配置 script 命令行：
 
 ```js
 "scripts": {
@@ -305,11 +299,9 @@ npx cz
 }
 ```
 
+### 6.commitlint 代码提交信息验证
 
-
-### 6.commitlint代码提交信息验证
-
-对commit message进行验证，并限制不规范的信息提交
+对 commit message 进行验证，并限制不规范的信息提交
 
 安装以下依赖
 
@@ -317,7 +309,7 @@ npx cz
 npm i @commitlint/config-conventional @commitlint/cli -D
 ```
 
-创建commitlint.config.js配置文件
+创建 commitlint.config.js 配置文件
 
 ```js
 module.exports = {
@@ -325,13 +317,13 @@ module.exports = {
 }
 ```
 
-生成拦截文件commit-msg，执行husky的自动化命令
+生成拦截文件 commit-msg，执行 husky 的自动化命令
 
 ```js
 npx husky add .husky/commit-msg "npx --no-install commitlint --edit $1"
 ```
 
-### 7.组件库element-plus
+### 7.组件库 element-plus
 
 安装及注册见：
 
@@ -344,7 +336,7 @@ npx husky add .husky/commit-msg "npx --no-install commitlint --edit $1"
 当前时间下两个按需引入的插件稳定版为(2024/3)
 
 ```js
-npm install -D unplugin-vue-components@0.25.2 unplugin-auto-import@0.16.7 
+npm install -D unplugin-vue-components@0.25.2 unplugin-auto-import@0.16.7
 ```
 
 ### 8.axios
