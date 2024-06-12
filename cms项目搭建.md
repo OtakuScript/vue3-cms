@@ -197,7 +197,7 @@ module.exports = {
     "eslint:recommended",
     "@vue/typescript/recommended",
     "plugin:prettier/recommended"
- ],
+  ],
   parserOptions: {
     ecmaVersion: 2020
   },
@@ -328,9 +328,9 @@ module.exports = {
 npx husky add .husky/commit-msg "npx --no-install commitlint --edit $1"
 ```
 
-### 7.vue-cli创建的项目的webpack配置
+### 7.vue-cli 创建的项目的 webpack 配置
 
-根目录里添加vue.config.js文件
+根目录里添加 vue.config.js 文件
 
 ### 8.组件库 element-plus
 
