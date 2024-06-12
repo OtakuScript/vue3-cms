@@ -192,7 +192,12 @@ module.exports = {
   env: {
     node: true
   },
-  extends: ["plugin:vue/vue3-essential", "eslint:recommended", "@vue/typescript/recommended"],
+  extends: [
+    "plugin:vue/vue3-essential",
+    "eslint:recommended",
+    "@vue/typescript/recommended",
+    "plugin:prettier/recommended"
+ ],
   parserOptions: {
     ecmaVersion: 2020
   },
@@ -323,7 +328,11 @@ module.exports = {
 npx husky add .husky/commit-msg "npx --no-install commitlint --edit $1"
 ```
 
-### 7.组件库 element-plus
+### 7.vue-cli创建的项目的webpack配置
+
+根目录里添加vue.config.js文件
+
+### 8.组件库 element-plus
 
 安装及注册见：
 
@@ -339,6 +348,6 @@ npx husky add .husky/commit-msg "npx --no-install commitlint --edit $1"
 npm install -D unplugin-vue-components@0.25.2 unplugin-auto-import@0.16.7
 ```
 
-### 8.axios
+### 9.axios
 
-### 9.区分环境变量
+### 10.区分环境变量
