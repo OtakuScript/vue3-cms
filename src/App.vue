@@ -6,11 +6,26 @@
 <script lang="ts">
 import { defineComponent } from "vue"
 import HelloWorld from "components/HelloWorld.vue"
+import faviconIco from "public/favicon.ico"
 
 export default defineComponent({
   name: "App",
+  data() {
+    return {
+      faviconIco
+    }
+  },
   components: {
     HelloWorld
+  },
+  mounted() {
+    this.$nextTick(() => {
+      let img = new Image()
+      img.src = this.faviconIco
+      let root = document.getElementById("app")
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      root!.append(img)
+    })
   }
 })
 </script>
