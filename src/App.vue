@@ -1,42 +1,39 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div></div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue"
-import HelloWorld from "components/HelloWorld.vue"
-import faviconIco from "public/favicon.ico"
+import VueLogo from "@/assets/logo.png"
 
 export default defineComponent({
   name: "App",
   data() {
     return {
-      faviconIco
+      VueLogo
     }
   },
-  components: {
-    HelloWorld
-  },
+  components: {},
   mounted() {
-    this.$nextTick(() => {
+    if (document.getElementById("VueLogo")) return
+    this.mountedLogoByJs()
+  },
+  methods: {
+    mountedLogoByJs() {
       let img = new Image()
-      img.src = this.faviconIco
+      img.src = this.VueLogo
+      img.id = "VueLogo"
+      img.style.position = "absolute"
+      img.style.left = "10px"
+      img.style.top = "10px"
+      img.width = 320
+      img.height = 320
       let root = document.getElementById("app")
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       root!.append(img)
-    })
+    }
   }
 })
 </script>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style lang="less"></style>

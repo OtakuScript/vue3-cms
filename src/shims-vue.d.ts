@@ -6,3 +6,4 @@ declare module "*.vue" {
 }
 
 declare module "*.ico"
+declare module "*.png"
