@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <main><RouterView /></main>
 </template>
 
 <script lang="ts" setup>
@@ -10,8 +10,8 @@ const mountedVueLogo = () => {
   let img = new Image()
   img.src = VueLogo
   img.id = "VueLogo"
-  img.width = 320
-  img.height = 320
+  img.width = 64
+  img.height = 64
   let app = document.getElementById("app")
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   app!.append(img)

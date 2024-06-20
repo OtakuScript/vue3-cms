@@ -1,25 +1,48 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router"
+import { createRouter, createWebHashHistory } from "vue-router"
+import type { RouteRecordRaw, Router } from "vue-router"
 
+import Login from "@/login/index.vue"
+import Layout from "@/layout/index.vue"
 import Home from "@/components/Home.vue"
 import About from "@/components/About.vue"
 import User from "@/components/User.vue"
 import NotFound from "@/components/NotFound.vue"
 
-const routes = [
+const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "Home",
-    component: Home
+    name: "Login",
+    redirect: "/login"
   },
   {
-    path: "/about",
-    name: "About",
-    component: About
+    path: "/login",
+    name: "Login",
+    component: Login,
+    children: []
   },
   {
-    path: "/user/:id",
-    name: "User",
-    component: User
+    path: "/logout",
+    name: "Logout",
+    component: Layout,
+    children: [
+      {
+        path: "/home",
+        name: "Home",
+        component: Home
+      },
+      {
+        path: "/about",
+        name: "About",
+        component: About,
+        children: [
+          {
+            path: "/user/:id",
+            name: "User",
+            component: User
+          }
+        ]
+      }
+    ]
   },
   {
     path: "/:pathMatch(.*)*",
@@ -28,7 +51,7 @@ const routes = [
   }
 ]
 
-const router = createRouter({
+const router: Router = createRouter({
   history: createWebHashHistory(),
   routes
 })
