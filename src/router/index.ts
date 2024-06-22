@@ -11,7 +11,6 @@ import NotFound from "@/components/NotFound.vue"
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "Login",
     redirect: "/login"
   },
   {
